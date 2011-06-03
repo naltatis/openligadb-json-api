@@ -12,16 +12,20 @@ end
 client = Savon::Client.new "http://www.openligadb.de/Webservices/Sportsdata.asmx?wsdl"
 
 get '/api/:action' do
-  
-  response = client.request :wsdl, params[:action] do
-    soap.body = {}
-    params.each do |key, value| 
-      key = key.to_s.lower_camelcase.gsub(/Id$/, 'ID')
-      soap.body[key] = value unless key == 'action'
-    end
-    pp soap.body
-  end 
-
   content_type :json
-  response.to_hash.to_json
+  
+  body = {}  
+  params.each do |key, value|
+    body[key.lower_camelcase.gsub(/Id$/, 'ID')] = value unless key == :action
+  end
+  
+  action = "get_#{params[:action]}".gsub(/id$/, 'iD')
+    
+  response = client.request :wsdl, action do
+    soap.body = body
+  end
+  hash = response.to_hash
+  hash = hash[hash.keys.first]
+  hash.delete :@xmlns
+  hash[hash.keys.first].to_json  
 end
