@@ -1,50 +1,73 @@
 %html
 	%head
-		%title openLigaDB Rest API
-		:css
-			a {
-				color: grey;
-				text-decoration: none;
-			}
-			.highlight1 {
-				color: green;
-			}
-			.highlight2 {
-				color: orange;
-			}
-			.highlight3 {
-				color: blue;
-			}
+		%title openligadb json api
+		%link{:rel => "stylesheet", :href => "/stylesheet.css", :type => "text/css", :charset => "utf-8"}
 	%body
-		%h1 openLigaDB Rest API
-		%h2 Beispiele
-		%dl
-		%dt
-			%a{:href => "/api/matchdata_by_group_league_saison?group_order_id=20&league_saison=2010&league_shortcut=bl1"}
-				%span> /api/matchdata_by_group_league_saison?
-				%span.highlight1 group_order_id=20
-				%span> &
-				%span.highlight2 league_saison=2010
-				%span> &
-				%span.highlight3 league_shortcut=bl1
-		%dd
-			%span Spiel-Ergebnisse 
-			%span.highlight1 des 20. Spieltages
-			%span.highlight2 der 1. Bundesliga
-			%span.highlight3 der Saison 2010/2011
-		%dt
-			%a{:href => "/api/teams_by_league_saison?league_saison=2010&league_shortcut=bl1"}
-				%span /teams_by_league_saison?league_saison=2010&league_shortcut=bl1
-		%dd
-		%dt
-			%a{:href => "/api/last_match?league_saison=2010&league_shortcut=bl1"}
-				%span "/last_match?league_saison=2010&league_shortcut=bl1
-		%dd
-		%dt
-			%a{:href => "/api/avail_groups?league_saison=2010&league_shortcut=bl1"}
-				%span /avail_groups?league_saison=2010&league_shortcut=bl1
-		%dd
-		%dt
-			%a{:href => "/api/avail_groups?league_saison=2010&league_shortcut=bl1"}
-				%span /avail_groups?league_saison=2010&league_shortcut=bl1
-		%dd
+		#overall
+			%h1
+				JSON API für
+				%a{ :href => "http://www.openligadb.de/" } openLigaDB
+				
+			%p.code
+				%span> #{request.url}api/
+				%span.highlight1> operation_name
+				%span.highlight2> ?parameter
+			%h2 Examples
+			%dl
+				%dt
+					%span.highlight1 Spiel-Ergebnisse
+					des 20. Spieltages der 1. Bundesliga der Saison 2010/2011
+				%dd
+					%a{:href => "#{request.url}api/matchdata_by_group_league_saison?group_order_id=20&league_saison=2010&league_shortcut=bl1"}
+						%span> #{request.url}api/
+						%span.highlight1> matchdata_by_group_league_saison
+						%br
+						%span.highlight2> ?group_order_id=8&league_saison=2010&league_shortcut=bl1
+				%dt
+					%span.highlight1 Liste aller Teams
+					der 1. Bundesliga in der Sainson 2010/2011
+				%dd
+					%a{:href => "#{request.url}api/teams_by_league_saison?league_saison=2010&league_shortcut=bl1"}
+						%span> #{request.url}api/
+						%span.highlight1> teams_by_league_saison
+						%br
+						%span.highlight2> ?league_saison=2010&league_shortcut=bl1
+				%dt
+					%span.highlight1 Liste aller Spieltage
+					der 1. Bundesliga in der Sainson 2010/2011
+				%dd
+					%a{:href => "#{request.url}api/avail_groups?league_saison=2010&league_shortcut=bl1"}
+						%span #{request.url}api/
+						%span.highlight1> avail_groups
+						%span.highlight2> ?league_saison=2010&league_shortcut=bl1
+				%dt
+					%span.highlight1 Liste aller Spiele
+					zwischen Werder Bremen und dem Hamburger SV
+				%dd
+					%a{:href => "#{request.url}api/matchdata_by_teams?team_id_1=100&team_id_2=134"}
+						%span #{request.url}api/
+						%span.highlight1> matchdata_by_teams
+						%span.highlight2> ?team_id_1=100&team_id_2=134
+			%p.note
+				Die komplette Liste aller verfügbaren 
+				%span.highlight1 Methoden
+				und deren
+				%span.highlight2 Parameter
+				gibt es unter
+				%a{ :href =>"http://www.openligadb.de/Webservices/Sportsdata.asmx" } www.OpenLigaDB.de/Webservices/Sportsdata.asmx
+			%h2 Informationen
+			%p
+				Dieses Projekt ist eine kleine Ruby Anwendung, die auf
+				%a{ :href => "http://www.sinatrarb.com/" } Sinatra
+				und
+				%a{ :href => "http://savonrb.com/" } Savon
+				(SOAP) basiert und einen einfacheren Zugang zur
+				%a{ :href => "http://www.openligadb.de/" } openLigaDB.de
+				Schnittstelle bereitstellt.
+			%p.copyright
+				mehr auf
+				%a{ :href => "https://github.com/naltatis/openligadb-json-api" } GitHub
+				oder
+				%a{ :href => "http://twitter.com/#!/naltatis" } Twitter
+		:plain
+			<a href="http://github.com/naltatis/openligadb-json-api"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub"></a>
