@@ -1,0 +1,47 @@
+%html
+	%head
+		%title openLigaDB Rest API
+		:css
+			a {
+				color: grey;
+				text-decoration: none;
+			}
+			.highlight1 {
+				color: green;
+			}
+			.highlight2 {
+				color: orange;
+			}
+			.highlight3 {
+				color: blue;
+			}
+	%body
+		%h1 openLigaDB Rest API
+		%h2 Beispiele
+		%dl
+		%dt
+			%a{:href => "http://localhost:4567/api/get_matchdata_by_group_league_saison?group_order_id=20&league_saison=2010&league_shortcut=bl1"}
+				%span> /api/get_matchdata_by_group_league_saison?
+				%span.highlight1 group_order_id=20
+				%span> &
+				%span.highlight2 league_saison=2010
+				%span> &
+				%span.highlight3 league_shortcut=bl1
+		%dd
+			%span Spiel-Ergebnisse 
+			%span.highlight1 des 20. Spieltages
+			%span.highlight2 der 1. Bundesliga
+			%span.highlight3 der Saison 2010/2011
+		%dt
+			%a{:href => "http://localhost:4567/api/get_teams_by_league_saison?league_saison=2010&league_shortcut=bl1"}
+				%span /get_teams_by_league_saison?league_saison=2010&league_shortcut=bl1
+		%dd
+		%dt
+			%a{:href => "http://localhost:4567/api/get_last_match?league_saison=2010&league_shortcut=bl1"}
+				%span /get_teams_by_league_saison?league_saison=2010&league_shortcut=bl1
+		%dd
+		%dt
+			%a{:href => "http://localhost:4567/api/get_avail_groups?league_saison=2010&league_shortcut=bl1"}
+				%span /get_avail_groups?league_saison=2010&league_shortcut=bl1
+		%dd
+		
