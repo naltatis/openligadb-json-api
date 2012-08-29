@@ -9,4 +9,4 @@ Dieses Projekt ist eine kleine Ruby Anwendung, die auf Sinatra und Savon (SOAP) 
 * [openLigaDB SOAP](http://www.openligadb.de/Webservices/Sportsdata.asmx) -- `Details zur SOAP Schnittstelle`
 
 
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=naltatis&url=https://github.com/naltatis/openligadb-json-api&title=OpenLigaDB REST/JSON Api&language=&tags=github&category=software) 
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=tatilans&url=https://github.com/naltatis/openligadb-json-api&title=OpenLigaDB REST/JSON Api&language=&tags=github&category=software) 
