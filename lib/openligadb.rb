@@ -1,5 +1,19 @@
 require 'savon'
 
+class String
+  def lower_camelcase
+    str = dup
+    str.gsub!(/\/(.?)/) { "::#{$1.upcase}" }
+    str.gsub!(/(?:_+|-+)([a-z])/) { $1.upcase }
+    str.gsub!(/(\A|\s)([A-Z])/) { $1 + $2.downcase }
+    str
+  end
+end
+
+Savon.configure do |config|
+  config.log_level = :error      # changing the log level
+end
+
 class OpenLigaDB
   def initialize
     @client = Savon::Client.new "http://www.openligadb.de/Webservices/Sportsdata.asmx?wsdl"
@@ -21,7 +35,7 @@ class OpenLigaDB
     hash = response.to_hash
     hash = hash[hash.keys.first]
     hash.delete :@xmlns
-    hash[hash.keys.first]    
+    hash[hash.keys.first] 
   end
   
   private
