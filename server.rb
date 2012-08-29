@@ -19,7 +19,12 @@ before do
     :ua => request.user_agent,
     :params => params
   }
-  StatsMix.track(request.path, 1, {:meta => meta})
+  if request.path == "/"
+    StatsMix.track("/", 1, {:meta => meta})
+  elsif request.path.start_with? "/api"
+    StatsMix.track("/api", 1, {:meta => meta})
+    StatsMix.track(request.path, 1, {:meta => meta})      
+  end
 end
 
 get '/' do
