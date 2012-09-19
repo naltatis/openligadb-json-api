@@ -10,3 +10,7 @@ Dieses Projekt ist eine kleine Ruby Anwendung, die auf Sinatra und Savon (SOAP) 
 
 
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=tatilans&url=https://github.com/naltatis/openligadb-json-api&title=OpenLigaDB REST/JSON Api&language=&tags=github&category=software) 
+
+Lizenz
+======
+The MIT License
