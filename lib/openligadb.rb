@@ -27,7 +27,7 @@ class OpenLigaDB
       params.each do |key, value|
         unless key == :action
           key = key.lower_camelcase
-          unless action == "get_next_match_by_league_team"
+          unless ["get_next_match_by_league_team", "get_last_match_by_league_team"].include?(action)
             key = key.gsub(/Id$/, 'ID').gsub(/Id_1$/, 'ID1').gsub(/Id_2$/, 'ID2')
           end
           soap.body[key] = value
