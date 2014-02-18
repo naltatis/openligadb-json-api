@@ -39,7 +39,7 @@ class OpenLigaDB
     hash = hash[hash.keys.first]
     hash.delete :@xmlns
     result = hash[hash.keys.first]
-    result = {last_change_date: result} if result.class == DateTime
+    result = {:last_change_date => result} if result.class == DateTime
   end
 
   private
