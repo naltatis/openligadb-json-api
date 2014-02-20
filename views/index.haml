@@ -15,7 +15,7 @@
 			%h1
 				JSON API für
 				%a{ :href => "http://www.openligadb.de/" } openLigaDB
-				
+
 			%p.code
 				%span> #{request.url}api/
 				%span.highlight1> operation_name
@@ -24,30 +24,31 @@
 			%dl
 				%dt
 					%span.highlight1 Spiel-Ergebnisse
-					des 20. Spieltages der 1. Bundesliga der Saison 2010/2011
+					des 20. Spieltages der 1. Bundesliga der Saison 2013/2014
 				%dd
-					%a{:href => "#{request.url}api/matchdata_by_group_league_saison?group_order_id=20&league_saison=2010&league_shortcut=bl1"}
+					%a{:href => "#{request.url}api/matchdata_by_group_league_saison?group_order_id=20&league_saison=2013&league_shortcut=bl1"}
 						%span> #{request.url}api/
 						%span.highlight1> matchdata_by_group_league_saison
 						%br
-						%span.highlight2> ?group_order_id=8&league_saison=2010&league_shortcut=bl1
+						%span.highlight2> ?group_order_id=8&league_saison=2013&league_shortcut=bl1
+
 				%dt
 					%span.highlight1 Liste aller Teams
-					der 1. Bundesliga in der Sainson 2010/2011
+					der 1. Bundesliga in der Sainson 2013/2014
 				%dd
-					%a{:href => "#{request.url}api/teams_by_league_saison?league_saison=2010&league_shortcut=bl1"}
+					%a{:href => "#{request.url}api/teams_by_league_saison?league_saison=2013&league_shortcut=bl1"}
 						%span> #{request.url}api/
 						%span.highlight1> teams_by_league_saison
 						%br
-						%span.highlight2> ?league_saison=2010&league_shortcut=bl1
+						%span.highlight2> ?league_saison=2013&league_shortcut=bl1
 				%dt
 					%span.highlight1 Liste aller Spieltage
-					der 1. Bundesliga in der Sainson 2010/2011
+					der 1. Bundesliga in der Sainson 2013/2014
 				%dd
-					%a{:href => "#{request.url}api/avail_groups?league_saison=2010&league_shortcut=bl1"}
+					%a{:href => "#{request.url}api/avail_groups?league_saison=2013&league_shortcut=bl1"}
 						%span #{request.url}api/
 						%span.highlight1> avail_groups
-						%span.highlight2> ?league_saison=2010&league_shortcut=bl1
+						%span.highlight2> ?league_saison=2013&league_shortcut=bl1
 				%dt
 					%span.highlight1 Liste aller Spiele
 					zwischen Werder Bremen und dem Hamburger SV
@@ -56,8 +57,23 @@
 						%span #{request.url}api/
 						%span.highlight1> matchdata_by_teams
 						%span.highlight2> ?team_id_1=100&team_id_2=134
+				%dt
+					%span.highlight1 Letztes Änderungsdatum
+					des 20. Spieltages der 1. Bundesliga der Saison 2013/2014
+					%p.small
+						Bitte nutzt diesen Aufruf, wenn Ihr während eines Spieltages nach aktuellen Ergebnissen pollt.
+						%br
+						Dieser Aufruf ist deutlich schneller und entlastet den openLigaDB-Server.
+				%dd
+					%a{:href => "#{request.url}api/last_change_date_by_group_league_saison?group_order_id=20&league_saison=2013&league_shortcut=bl1"}
+						%span> #{request.url}api/
+						%span.highlight2> last_change_date
+						%span> _by_group_league_saison?group_order_id=8&league_saison=2010&league_shortcut=bl1
+
+
+
 			%p.note
-				Die komplette Liste aller verfügbaren 
+				Die komplette Liste aller verfügbaren
 				%span.highlight1 Methoden
 				und deren
 				%span.highlight2 Parameter
@@ -80,7 +96,7 @@
 				.flattr
 					:plain
 						<a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://openligadb-json.heroku.com"></a>
-						<noscript><a href="http://flattr.com/thing/862962/OpenLigaDB-RESTJSON-Api" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>				
+						<noscript><a href="http://flattr.com/thing/862962/OpenLigaDB-RESTJSON-Api" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
 		:plain
 			<a href="http://github.com/naltatis/openligadb-json-api"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
 		:javascript
