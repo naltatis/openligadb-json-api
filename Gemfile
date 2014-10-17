@@ -3,7 +3,8 @@
 # install bundler "gem install bundler"
 # install all dependencies with "bundle install"
 
-source "http://rubygems.org"
+source "https://rubygems.org"
+ruby "1.9.3"
 
 gem "savon"
 gem "sinatra"
